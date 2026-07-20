@@ -330,3 +330,23 @@ https://github.com/ipshitachaudhuri
 
 ⭐ Production-style Flask Kubernetes deployment project
 
+
+
+# Screenshots
+
+## Kubernetes Deployment
+
+![Kubernetes](screenshots/kubernetes.png)
+
+## HTTPS Health Check
+
+![HTTPS](screenshots/https-health.png)
+
+## Ingress Configuration
+
+![Ingress](screenshots/ingress.png)
+
+## GitHub Repository
+
+![GitHub](screenshots/github.png)
+
