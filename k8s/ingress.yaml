@@ -1,0 +1,40 @@
+apiVersion: v1
+items:
+- apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"nginx.ingress.kubernetes.io/rewrite-target":"/"},"name":"flask-api-ingress","namespace":"flask-app"},"spec":{"ingressClassName":"nginx","rules":[{"host":"flask-api.local","http":{"paths":[{"backend":{"service":{"name":"flask-api","port":{"number":8000}}},"path":"/","pathType":"Prefix"}]}}]}}
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    creationTimestamp: "2026-07-20T10:29:21Z"
+    generation: 3
+    name: flask-api-ingress
+    namespace: flask-app
+    resourceVersion: "152822"
+    uid: ba5c65f2-9135-4169-b6d7-6a5098a89440
+  spec:
+    ingressClassName: nginx
+    rules:
+    - host: api.ipshitechnology.com
+      http:
+        paths:
+        - backend:
+            service:
+              name: flask-api
+              port:
+                number: 8000
+          path: /
+          pathType: Prefix
+    tls:
+    - hosts:
+      - api.ipshitechnology.com
+      secretName: flask-api-tls
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 192.168.49.2
+kind: List
+metadata:
+  resourceVersion: ""

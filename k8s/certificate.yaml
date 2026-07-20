@@ -1,0 +1,44 @@
+apiVersion: v1
+items:
+- apiVersion: cert-manager.io/v1
+  kind: Certificate
+  metadata:
+    creationTimestamp: "2026-07-20T13:08:12Z"
+    generation: 1
+    name: flask-api-tls
+    namespace: flask-app
+    ownerReferences:
+    - apiVersion: networking.k8s.io/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Ingress
+      name: flask-api-ingress
+      uid: ba5c65f2-9135-4169-b6d7-6a5098a89440
+    resourceVersion: "152934"
+    uid: 0e1243a0-62d5-40d7-94c0-76392f31b3cf
+  spec:
+    dnsNames:
+    - api.ipshitechnology.com
+    issuerRef:
+      group: cert-manager.io
+      kind: ClusterIssuer
+      name: letsencrypt-prod
+    secretName: flask-api-tls
+    usages:
+    - digital signature
+    - key encipherment
+  status:
+    conditions:
+    - lastTransitionTime: "2026-07-20T13:08:35Z"
+      message: Certificate is up to date and has not expired
+      observedGeneration: 1
+      reason: Ready
+      status: "True"
+      type: Ready
+    notAfter: "2026-10-18T12:10:03Z"
+    notBefore: "2026-07-20T12:10:04Z"
+    renewalTime: "2026-09-18T12:10:03Z"
+    revision: 1
+kind: List
+metadata:
+  resourceVersion: ""

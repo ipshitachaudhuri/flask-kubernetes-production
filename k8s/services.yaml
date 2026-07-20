@@ -1,0 +1,63 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"flask-api","namespace":"flask-app"},"spec":{"ports":[{"nodePort":30080,"port":8000,"targetPort":8000}],"selector":{"app":"flask-api"},"type":"NodePort"}}
+    creationTimestamp: "2026-07-18T09:50:05Z"
+    name: flask-api
+    namespace: flask-app
+    resourceVersion: "146602"
+    uid: bb18865b-57c3-43b3-b870-769004b6ffe9
+  spec:
+    clusterIP: 10.111.208.111
+    clusterIPs:
+    - 10.111.208.111
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 8000
+      protocol: TCP
+      targetPort: 8000
+    selector:
+      app: flask-api
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"postgres-db","namespace":"flask-app"},"spec":{"ports":[{"port":5432,"targetPort":5432}],"selector":{"app":"postgres-db"}}}
+    creationTimestamp: "2026-07-18T09:40:06Z"
+    name: postgres-db
+    namespace: flask-app
+    resourceVersion: "142591"
+    uid: 78df20d4-57cf-4a07-8c9b-98b65845cebe
+  spec:
+    clusterIP: 10.97.132.47
+    clusterIPs:
+    - 10.97.132.47
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 5432
+      protocol: TCP
+      targetPort: 5432
+    selector:
+      app: postgres-db
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""
